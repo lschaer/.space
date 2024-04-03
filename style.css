@@ -1,0 +1,43 @@
+:root {
+    --main-bg-color-dark: #0e131b;
+    --main-accent-color-dark: #c9cfd6;
+    /* Green Color */
+    /*--main-bg-color-dark: white;
+    --main-accent-color-dark: green;*/
+    background: var(--main-bg-color-dark);
+    color: var(--main-accent-color-dark);
+    font-family: monospace;
+}
+
+:root::-webkit-scrollbar {
+    background-color: var(--main-bg-color-dark);  /* scrollbar background in browser, default is ugly */
+    width: 2px;
+}
+
+:root::-webkit-scrollbar-thumb{
+    background: var(--main-accent-color-dark); /* color of scrollbar thumb, default is ugly */
+}
+
+body {
+    font-family: monospace;
+    text-align: left;
+    max-width: 80%;
+}
+
+.title {
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    padding: .3em;
+    user-select: none;
+    font-size: 2em;
+    min-height: 7.5em;
+    text-align: left;
+}
+
+.contentContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto;
+    width: 60%;
+    text-align: left;
+}
