@@ -41,3 +41,19 @@ body {
     width: 60%;
     text-align: left;
 }
+
+
+/* Hide some elements if on small screen */
+@media only screen and (max-width: 700px){
+    .logo{
+        display: none;
+    }
+    .contentContainer {
+        width: 85%;
+    }
+    .title{
+        font-size: 1.5em;
+        grid-template-columns: 0fr 1fr;
+    }
+
+}
