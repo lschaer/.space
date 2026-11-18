@@ -3,178 +3,115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lucius – Links</title>
-  <meta name="description" content="Sleek, modern link hub for Lucius Schärer" />
+  <title>Lucius Schärer</title>
+  <meta name="description" content="Projects by Lucius Schärer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #121212;           /* deep charcoal */
-      --bg-soft: #1c1c1c;      /* panels */
-      --text: #e6e6e6;         /* primary text */
-      --muted: #9aa0a6;        /* secondary text */
-      --accent: #5CC7C7;       /* soft cyan */
-      --accent-2: #BFA76F;     /* muted gold (optional) */
-      --border: #242424;       /* subtle borders */
-      --ring: #2d3a3a;         /* focus ring */
-      --radius: 20px;
-      --shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
+      --bg: #111111;
+      --text: #e8e8e8;
+      --muted: #8a8f94;
+      --line: #232323;
+      --accent: #5CC7C7;
     }
     @media (prefers-color-scheme: light){
-      :root{ --bg:#f6f6f6; --bg-soft:#ffffff; --text:#1d1f21; --muted:#5f6368; --border:#e6e6e6; --ring:#bfe7e7; }
-      body{ background: radial-gradient(1000px 600px at 10% 0%, #e9f5f5 0%, transparent 45%),
-                     radial-gradient(800px 500px at 90% 10%, #f4efe5 0%, transparent 40%), var(--bg); }
+      :root{ --bg:#fafafa; --text:#1d1f21; --muted:#6b7075; --line:#e6e6e6; --accent:#2f9a9a; }
     }
     *{ box-sizing: border-box; }
-    html,body{ height:100%; }
     body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(900px 500px at 20% -10%, rgba(92,199,199,.10), transparent 60%),
-        radial-gradient(700px 400px at 90% -10%, rgba(191,167,111,.08), transparent 60%),
-        var(--bg);
-      display:flex; align-items:center; justify-content:center; padding: 40px 20px;
+      font: 400 15px/1.55 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .wrap{ width:100%; max-width: 980px; }
-    header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom: 28px; }
-    .brand{ display:flex; align-items:center; gap:12px; }
-    .avatar{ width:44px; height:44px; border-radius:50%; background: linear-gradient(180deg, #2a2a2a, #151515); border:1px solid var(--border); box-shadow: var(--shadow); display:grid; place-items:center; }
-    .avatar svg{ width:22px; height:22px; opacity:.9; }
-    h1{ font-size: clamp(22px, 3vw, 28px); margin:0; letter-spacing:.2px; font-weight:600; }
-    .tagline{ color: var(--muted); font-size: 14px; }
+    main{ max-width: 620px; margin: 0 auto; padding: 14vh 24px 10vh; }
 
-    .grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:18px; }
-    @media (max-width: 720px){ .grid{ grid-template-columns: 1fr; } }
+    header{ margin-bottom: 64px; }
+    h1{ font-size: 20px; font-weight: 500; margin: 0; letter-spacing: .1px; }
+    .tagline{ color: var(--muted); margin: 4px 0 0; }
 
-    .card{
-      position:relative; overflow:hidden; border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.08)), var(--bg-soft);
-      border:1px solid var(--border);
-      box-shadow: var(--shadow);
-      padding: 22px 22px 20px; min-height: 150px; display:flex; flex-direction:column; justify-content:space-between; gap:16px;
-      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; text-decoration:none; color:inherit;
-      isolation:isolate;
+    h2{ font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: .14em;
+        text-transform: uppercase; margin: 0 0 8px; }
+
+    ul{ list-style: none; margin: 0; padding: 0; }
+    li{ border-top: 1px solid var(--line); }
+    li:last-child{ border-bottom: 1px solid var(--line); }
+
+    .row{
+      display: grid; grid-template-columns: 1fr auto; column-gap: 16px; row-gap: 2px;
+      padding: 18px 0; color: inherit; text-decoration: none;
     }
-    .card:hover{ transform: translateY(-3px); border-color: #2f3c3c; box-shadow: 0 16px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.04); }
-    .card:focus-visible{ outline: none; box-shadow: 0 0 0 4px var(--ring); border-color: var(--accent); }
-
-    .eyebrow{ color: var(--muted); font-size:12px; letter-spacing:.18em; text-transform:uppercase; }
-
-    .title{ font-weight: 600; font-size: clamp(18px, 2.2vw, 22px); letter-spacing:.2px; margin: 4px 0 0; }
-
-    .desc{ color: var(--muted); font-size: 14px; margin: 6px 0 0; }
-
-    .footer{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top: 8px; }
-    .chip{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius: 999px; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.06)); font-size:13px; }
-    .chip svg{ width:16px; height:16px; }
-
-    /* subtle accent flares */
-    .card::after{
-      content:""; position:absolute; inset:auto -30% -30% auto; width: 60%; aspect-ratio:1/1; border-radius:50%;
-      background: radial-gradient(closest-side, rgba(92,199,199,.20), transparent 70%);
-      filter: blur(26px); opacity:.7; z-index:-1; transform: translate(10%, 10%);
+    .name{ font-weight: 500; }
+    .name::after{
+      content: "↗"; display: inline-block; margin-left: 6px; color: var(--accent);
+      opacity: 0; transform: translate(-3px, 2px); transition: opacity .2s ease, transform .2s ease;
     }
-    .card.gold::after{ background: radial-gradient(closest-side, rgba(191,167,111,.20), transparent 70%); }
+    .kind{ color: var(--muted); font-size: 13px; align-self: baseline; white-space: nowrap; }
+    .desc{ grid-column: 1 / -1; color: var(--muted); font-size: 14px; }
 
-    /* tiny arrows */
-    .arrow{ margin-left: 6px; transition: transform .25s ease; }
-    .card:hover .arrow{ transform: translateX(3px); }
+    /* Small screens: one column, label below the description, no hover arrow. */
+    @media (max-width: 480px){
+      .row{ grid-template-columns: 1fr; }
+      .kind{ order: 1; font-size: 12px; margin-top: 4px; }
+      .name{ overflow-wrap: anywhere; }
+      .name::after{ display: none; }
+    }
 
-    /* footer links */
-    .links{ display:flex; gap:14px; }
-    .links a{ color: var(--muted); text-decoration:none; font-size:14px; border-bottom:1px dashed transparent; }
-    .links a:hover{ color: var(--text); border-color: var(--accent); }
+    .row:hover .name::after, .row:focus-visible .name::after{ opacity: 1; transform: translate(0, 0); }
+    .row:focus-visible{ outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 
-    /* map-ish background motif for the travel card */
-    .map-motif{ position:absolute; inset:-20% -10% auto auto; width:60%; opacity:.07; pointer-events:none; }
+    footer{ margin-top: 64px; }
+    footer a{ color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+    footer a:hover{ color: var(--text); border-color: var(--accent); }
   </style>
 </head>
 <body>
-  <main class="wrap" role="main">
+  <main>
     <header>
-      <div class="brand" aria-label="Site header">
-        <div class="avatar" aria-hidden="true">
-          <!-- simple L monogram -->
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v12h9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        </div>
-        <div>
-          <h1>Lucius Schärer</h1>
-          <div class="tagline">Journeys & projects — refined.</div>
-        </div>
-      </div>
-      <div class="links" aria-label="Auxiliary links">
-        <a href="mailto:contact@luciusschaerer.space">Email</a>
-      </div>
+      <h1>Lucius Schärer</h1>
+      <p class="tagline">Journeys &amp; projects.</p>
     </header>
 
-    <section class="grid" aria-label="Featured links">
-      <!-- Awesome Restaurants -->
-      <a class="card gold" href="https://awesomerestaurants.ch" target="_blank" rel="noopener" aria-label="Open awesomerestaurants.ch in a new tab">
-        <div>
-          <div class="eyebrow">Curated Project</div>
-          <div class="title">awesomerestaurants.ch <span class="arrow" aria-hidden="true">→</span></div>
-          <p class="desc">Awesome Restaurants: a small, handpicked selection of restaurants in Switzerland I’ve been to and truly loved.</p>
-        </div>
-        <div class="footer">
-          <span class="chip" aria-hidden="true">
-            <!-- fork & knife icon -->
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3v7m0 0v11M7 10a3 3 0 0 0 3-3V3M7 10a3 3 0 0 1-3-3V3M17 3v9m0 0v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Dining Guide
-          </span>
-          <span class="chip" aria-hidden="true">.ch</span>
-        </div>
-      </a>
-      <!-- Recipes -->
-      <a class="card gold" href="https://recipes.luciusschaerer.space" target="_blank" rel="noopener" aria-label="Open awesomerestaurants.ch in a new tab">
-        <div>
-          <div class="eyebrow">Recipes</div>
-          <div class="title">recipes.luciusschaerer.space <span class="arrow" aria-hidden="true">→</span></div>
-          <p class="desc">A small collection of recipes worth cooking. Simple to find, easy to follow.</p>
-        </div>
-        <div class="footer">
-          <span class="chip" aria-hidden="true">
-            <!-- fork & knife icon -->
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3v7m0 0v11M7 10a3 3 0 0 0 3-3V3M7 10a3 3 0 0 1-3-3V3M17 3v9m0 0v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            recipes.
-          </span>
-          <span class="chip" aria-hidden="true">.space</span>
-        </div>
-      </a>      
-      <!-- Travel Tracker -->
-      <a class="card" href="https://travels.luciusschaerer.space" target="_blank" rel="noopener" aria-label="Open travels.luciusschaerer.space in a new tab">
-        <svg class="map-motif" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg"><path d="M10 40c20-20 40-10 60 0s40 20 60 0 40-10 60 0" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>
-        <div>
-          <div class="eyebrow">Live</div>
-          <div class="title">travels.luciusschaerer.space <span class="arrow" aria-hidden="true">→</span></div>
-          <p class="desc">A sleek modern map to track your adventures — minimal cards, soft cyan accents, premium dark mode.</p>
-        </div>
-        <div class="footer">
-          <span class="chip" aria-hidden="true">
-            <!-- map pin icon -->
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s7-6.2 7-11.2A7 7 0 0 0 12 3a7 7 0 0 0-7 6.8C5 14.8 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.8" r="2.4" fill="currentColor"/></svg>
-            Travel Tracker
-          </span>
-          <span class="chip" aria-hidden="true">.space</span>
-        </div>
-      </a>
-      <!-- Pomodoro -->
-      <a class="card" href="https://github.com/lschaer/pomodoro" target="_blank" rel="noopener" aria-label="Open the Pomodoro app on GitHub in a new tab">
-        <div>
-          <div class="eyebrow">macOS App</div>
-          <div class="title">Pomodoro <span class="arrow" aria-hidden="true">→</span></div>
-          <p class="desc">A minimal menu bar focus timer — minutes plus a quiet ring of seconds, a pinned work topic with a session log, and a soft glow while you focus.</p>
-        </div>
-        <div class="footer">
-          <span class="chip" aria-hidden="true">
-            <!-- 12-dot seconds ring, like the app icon -->
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><circle cx="12" cy="4" r="1.4"/><circle cx="16" cy="5.07" r="1.4"/><circle cx="18.93" cy="8" r="1.4"/><circle cx="20" cy="12" r="1.4"/><circle cx="18.93" cy="16" r="1.4"/><circle cx="16" cy="18.93" r="1.4"/><circle cx="12" cy="20" r="1.4"/><circle cx="8" cy="18.93" r="1.4"/><circle cx="5.07" cy="16" r="1.4"/><circle cx="4" cy="12" r="1.4" opacity=".35"/><circle cx="5.07" cy="8" r="1.4" opacity=".35"/><circle cx="8" cy="5.07" r="1.4" opacity=".35"/></svg>
-            Focus Timer
-          </span>
-          <span class="chip" aria-hidden="true">Swift</span>
-        </div>
-      </a>
+    <section aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
+      <ul>
+        <li>
+          <a class="row" href="https://awesomerestaurants.ch" target="_blank" rel="noopener">
+            <span class="name">awesomerestaurants.ch</span>
+            <span class="kind">Dining guide</span>
+            <span class="desc">A handpicked selection of restaurants in Switzerland I’ve truly loved.</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://recipes.luciusschaerer.space" target="_blank" rel="noopener">
+            <span class="name">recipes.luciusschaerer.space</span>
+            <span class="kind">Recipes</span>
+            <span class="desc">Recipes worth cooking — simple to find, easy to follow.</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://travels.luciusschaerer.space" target="_blank" rel="noopener">
+            <span class="name">travels.luciusschaerer.space</span>
+            <span class="kind">Travel map</span>
+            <span class="desc">A minimal map to track my adventures.</span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="https://github.com/lschaer/pomodoro" target="_blank" rel="noopener">
+            <span class="name">Pomodoro</span>
+            <span class="kind">macOS app</span>
+            <span class="desc">A menu bar focus timer with a quiet seconds ring, a session log and a soft focus glow.</span>
+          </a>
+        </li>
+      </ul>
     </section>
+
+    <footer>
+      <a href="mailto:contact@luciusschaerer.space">Email</a>
+    </footer>
   </main>
 </body>
 </html>
