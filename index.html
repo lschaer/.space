@@ -36,6 +36,15 @@
     .strip{ width: 56px; height: 3px; border-radius: 3px; margin-top: 20px;
             background: var(--accent); }
 
+    /* days left this year */
+    .year{ margin-bottom: 64px; }
+    .year-text{ margin: 0 0 14px; color: var(--muted); }
+    .year-text .num{ color: var(--accent); font-weight: 500; font-variant-numeric: tabular-nums; }
+    .days{ display: grid; grid-template-columns: repeat(auto-fill, 5px); gap: 4px; }
+    .days i{ width: 5px; height: 5px; border-radius: 50%; background: var(--muted); opacity: .45; }
+    .days i.past{ background: var(--line); opacity: 1; }
+    .days i.today{ background: var(--accent); opacity: 1; box-shadow: 0 0 6px var(--accent); }
+
     h2{ font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: .14em;
         text-transform: uppercase; margin: 0 0 8px; }
 
@@ -84,6 +93,11 @@
       <div class="strip" aria-hidden="true"></div>
     </header>
 
+    <section class="year" aria-label="Days left this year">
+      <p class="year-text"><span class="num" id="days-left">–</span> days left in <span id="year"></span></p>
+      <div class="days" id="days" role="img"></div>
+    </section>
+
     <section aria-labelledby="projects">
       <h2 id="projects">Projects</h2>
       <ul>
@@ -122,5 +136,34 @@
       <a href="mailto:contact@luciusschaerer.space">Email</a>
     </footer>
   </main>
+  <script>
+    // Days left in the current year, in the visitor's local time. Today isn't counted as left.
+    function renderYear(){
+      const now = new Date();
+      const y = now.getFullYear();
+      const startOfDay = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+      const msPerDay = 86400000;
+      const daysInYear = Math.round((new Date(y + 1, 0, 1) - new Date(y, 0, 1)) / msPerDay);
+      const dayOfYear = Math.round((startOfDay(now) - new Date(y, 0, 1)) / msPerDay) + 1;
+      const left = daysInYear - dayOfYear;
+
+      document.getElementById("days-left").textContent = left;
+      document.getElementById("year").textContent = y;
+
+      const grid = document.getElementById("days");
+      grid.setAttribute("aria-label", `Day ${dayOfYear} of ${daysInYear}; ${left} days left`);
+      grid.replaceChildren(...Array.from({ length: daysInYear }, (_, i) => {
+        const dot = document.createElement("i");
+        if (i + 1 < dayOfYear) dot.className = "past";
+        else if (i + 1 === dayOfYear) dot.className = "today";
+        return dot;
+      }));
+
+      // Re-render just after the next local midnight.
+      const tomorrow = new Date(y, now.getMonth(), now.getDate() + 1);
+      setTimeout(renderYear, tomorrow - now + 1000);
+    }
+    renderYear();
+  </script>
 </body>
 </html>
