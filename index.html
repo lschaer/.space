@@ -14,16 +14,10 @@
       --text: #e8e8e8;
       --muted: #8a8f94;
       --line: #232323;
-      --accent: #5CC7C7;
-      /* one quiet color per project */
-      --gold: #CDB07A;
-      --terracotta: #D9917A;
-      --cyan: #5CC7C7;
-      --rose: #E07A7A;
+      --accent: #F2DA8C;   /* light yellow */
     }
     @media (prefers-color-scheme: light){
-      :root{ --bg:#fafafa; --text:#1d1f21; --muted:#6b7075; --line:#e6e6e6; --accent:#2f9a9a;
-             --gold:#A8874A; --terracotta:#C0684D; --cyan:#2F9A9A; --rose:#C9524F; }
+      :root{ --bg:#fafafa; --text:#1d1f21; --muted:#6b7075; --line:#e6e6e6; --accent:#B8901E; }
     }
     *{ box-sizing: border-box; }
     body{
@@ -38,9 +32,9 @@
     header{ margin-bottom: 64px; }
     h1{ font-size: 20px; font-weight: 500; margin: 0; letter-spacing: .1px; }
     .tagline{ color: var(--muted); margin: 4px 0 0; }
-    /* signature strip: the four project colors */
+    /* small accent strip */
     .strip{ width: 56px; height: 3px; border-radius: 3px; margin-top: 20px;
-            background: linear-gradient(90deg, var(--gold), var(--terracotta), var(--rose), var(--cyan)); }
+            background: var(--accent); }
 
     h2{ font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: .14em;
         text-transform: uppercase; margin: 0 0 8px; }
@@ -56,13 +50,13 @@
     .name{ font-weight: 500; transition: color .2s ease; }
     .name::before{
       content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
-      background: var(--c, var(--accent)); margin-right: 12px; vertical-align: 1px;
+      background: var(--accent); margin-right: 12px; vertical-align: 1px;
     }
     .name::after{
-      content: "↗"; display: inline-block; margin-left: 6px; color: var(--c, var(--accent));
+      content: "↗"; display: inline-block; margin-left: 6px; color: var(--accent);
       opacity: 0; transform: translate(-3px, 2px); transition: opacity .2s ease, transform .2s ease;
     }
-    .kind{ color: var(--c, var(--muted)); font-size: 13px; align-self: baseline; white-space: nowrap; }
+    .kind{ color: var(--muted); font-size: 13px; align-self: baseline; white-space: nowrap; }
     .desc{ grid-column: 1 / -1; color: var(--muted); font-size: 14px; padding-left: 19px; }
 
     /* Small screens: one column, label below the description, no hover arrow. */
@@ -73,7 +67,7 @@
       .name::after{ display: none; }
     }
 
-    .row:hover .name, .row:focus-visible .name{ color: var(--c, var(--accent)); }
+    .row:hover .name, .row:focus-visible .name{ color: var(--accent); }
     .row:hover .name::after, .row:focus-visible .name::after{ opacity: 1; transform: translate(0, 0); }
     .row:focus-visible{ outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 
@@ -93,28 +87,28 @@
     <section aria-labelledby="projects">
       <h2 id="projects">Projects</h2>
       <ul>
-        <li style="--c: var(--gold)">
+        <li>
           <a class="row" href="https://awesomerestaurants.ch" target="_blank" rel="noopener">
             <span class="name">awesomerestaurants.ch</span>
             <span class="kind">Dining guide</span>
             <span class="desc">A handpicked selection of restaurants in Switzerland I’ve truly loved.</span>
           </a>
         </li>
-        <li style="--c: var(--terracotta)">
+        <li>
           <a class="row" href="https://recipes.luciusschaerer.space" target="_blank" rel="noopener">
             <span class="name">recipes.luciusschaerer.space</span>
             <span class="kind">Recipes</span>
             <span class="desc">Recipes worth cooking — simple to find, easy to follow.</span>
           </a>
         </li>
-        <li style="--c: var(--cyan)">
+        <li>
           <a class="row" href="https://travels.luciusschaerer.space" target="_blank" rel="noopener">
             <span class="name">travels.luciusschaerer.space</span>
             <span class="kind">Travel map</span>
             <span class="desc">A minimal map to track my adventures.</span>
           </a>
         </li>
-        <li style="--c: var(--rose)">
+        <li>
           <a class="row" href="https://github.com/lschaer/pomodoro" target="_blank" rel="noopener">
             <span class="name">Pomodoro</span>
             <span class="kind">macOS app</span>
